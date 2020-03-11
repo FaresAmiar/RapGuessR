@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RapGuessR</string>
+    <string name="title_activity_choix_rapper">ChoixRapperActivity</string>
 </resources>

@@ -1,10 +1,10 @@
 package com.rapguessr;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.TextView;
 
-import core.GLA;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,11 +13,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GLA gla = new GLA("x1lo0H_7JTDLVitYtAz2YmsMlbU_jJhGgNpgSk_ru0d5-uuw18P27o4iUIyyX3fZ","r75U8Fje6k0DJkRw0giN4VAODU-cnRuLGJaJYlL8uSk226TnqznqK_xlaTDtAn5x");
-        gla.search("Ninho");
-        SongSearch songSearch = new SongSearch();
-        TextView tv = findViewById(R.id.textView);
+        Button jouer = findViewById(R.id.btnJouer);
 
-        tv.setText(lyrics);
+        Intent i = new Intent(this,ChoixRapperActivity.class);
+        startActivity(i);
+
     }
 }
