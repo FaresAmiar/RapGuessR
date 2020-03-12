@@ -56,12 +56,19 @@ public class ChoixRapperActivity extends AppCompatActivity {
     private void demarrerJeu() {
         if(cptRappeurs <= 5 && cptRappeurs >=1) {
             if(radFacile.isChecked()) {
+                int score = 0;
                 Intent i = new Intent(this, JeuFacileActivity.class);
+                i.putExtra("score",score);
                 i.putStringArrayListExtra("Rappeurs", (ArrayList<String>) rappeurs);
                 startActivity(i);
             }
             else {
+                int score = 0;
+                int nbActivite = 0;
                 Intent i = new Intent(this, JeuDifficileActivity.class);
+                ++nbActivite;
+                i.putExtra("nbActivite",nbActivite);
+                i.putExtra("score",score);
                 i.putStringArrayListExtra("Rappeurs", (ArrayList<String>) rappeurs);
                 startActivity(i);
             }
