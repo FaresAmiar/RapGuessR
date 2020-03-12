@@ -1,4 +1,23 @@
-<resources>
+ <resources>
     <string name="app_name">RapGuessR</string>
-    <string name="title_activity_choix_rapper">ChoixRapperActivity</string>
+     <array name="rappeurs">
+         <item>Ninho</item>
+         <item>Booba</item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+         <item></item>
+
+     </array>
+
+     <string name="title_activity_choix_rapper">ChoixRapperActivity</string>
 </resources>

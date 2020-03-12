@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "575417755815",
+    "firebase_url": "https://rapguessr-5650c.firebaseio.com",
+    "project_id": "rapguessr-5650c",
+    "storage_bucket": "rapguessr-5650c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575417755815:android:35ab9853c343655c169382",
+        "android_client_info": {
+          "package_name": "com.rapguessr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575417755815-lnm3k8mq8dhn0dvt06vofmqge23jksnl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rapguessr",
+            "certificate_hash": "43c8ad803bc147ee6f9b4cd3296bd269b6bcee62"
+          }
+        },
+        {
+          "client_id": "575417755815-fa1pnjtpn0pmal817g1k3gv96rla6g8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlXVkpuRWB3V9waWUicJI4ExdWW4Xntck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575417755815-fa1pnjtpn0pmal817g1k3gv96rla6g8c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
