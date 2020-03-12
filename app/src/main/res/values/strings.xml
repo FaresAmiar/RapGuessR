@@ -20,4 +20,7 @@
      </array>
 
      <string name="title_activity_choix_rapper">ChoixRapperActivity</string>
+    <string name="title_activity_choix_rapper">ChoixRapperActivity</string>
+    <string name="title_activity_jeu_facile">JeuFacileActivity</string>
+    <string name="title_activity_jeu_difficile">JeuDifficileActivity</string>
 </resources>
