@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".FinActivity"
+            android:label="@string/title_activity_fin"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".JeuDifficileActivity"
             android:label="@string/title_activity_jeu_difficile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".JeuFacileActivity"
             android:label="@string/title_activity_jeu_facile"
