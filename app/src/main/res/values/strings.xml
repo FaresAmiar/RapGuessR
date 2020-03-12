@@ -3,23 +3,26 @@
      <array name="rappeurs">
          <item>Ninho</item>
          <item>Booba</item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-         <item></item>
-
+         <item>Dinos</item>
+         <item>Damso</item>
+         <item>Vald</item>
+         <item>Sofiane</item>
+         <item>Rohff</item>
+         <item>Kaaris</item>
+         <item>Koba la D</item>
+         <item>Heuss L\'enfoiré</item>
+         <item>Hornet la Frappe</item>
+         <item>Nekfeu</item>
+         <item>PNL</item>
+         <item>MHD</item>
+         <item>Niska</item>
+         <item>Maes</item>
+         <item>Lacrim</item>
+         <item>Kery James</item>
+         <item>Alkpote</item>
+         <item>Gael Faye</item>
      </array>
 
-     <string name="title_activity_choix_rapper">ChoixRapperActivity</string>
     <string name="title_activity_choix_rapper">ChoixRapperActivity</string>
     <string name="title_activity_jeu_facile">JeuFacileActivity</string>
     <string name="title_activity_jeu_difficile">JeuDifficileActivity</string>
