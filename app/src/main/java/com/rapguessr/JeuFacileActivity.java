@@ -60,7 +60,10 @@ public class JeuFacileActivity extends AppCompatActivity {
 
         List<String> paroles = new ArrayList<>();
 
-        
+        while(lyrics != "") {
+            paroles.add(lyrics.substring(0, lyrics.indexOf("\n")));
+            lyrics = lyrics.substring(lyrics.indexOf("\n"));
+        }
 
     }
 
