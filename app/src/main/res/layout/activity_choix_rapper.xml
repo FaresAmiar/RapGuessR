@@ -24,21 +24,21 @@
 
     <RadioGroup
         android:id="@+id/rdGroup"
-        android:layout_width="264dp"
-        android:layout_height="47dp"
+        android:layout_width="267dp"
+        android:layout_height="54dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="131dp">
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="123dp">
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/radFacile"
             android:layout_width="79dp"
             android:layout_height="wrap_content"
             android:text="Facile" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/radDifficile"
             android:layout_width="136dp"
             android:layout_height="wrap_content"
             android:text="Difficile" />
@@ -59,27 +59,27 @@
 
     <Button
         android:id="@+id/btnDemarrer"
-        android:layout_width="97dp"
-        android:layout_height="27dp"
+        android:layout_width="117dp"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="166dp"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="37dp"
         android:text="DEMARRER"
         android:textSize="18sp" />
 
     <EditText
         android:id="@+id/txtRappeur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="111dp"
+        android:layout_height="48dp"
         android:layout_above="@+id/tvChoix"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginEnd="294dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="268dp"
+        android:layout_marginBottom="135dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="12sp" />
@@ -91,10 +91,23 @@
         android:layout_above="@+id/tvChoix"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="250dp"
-        android:layout_marginBottom="97dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="254dp"
+        android:layout_marginBottom="62dp"
         android:text="Entrer Rappeur"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etDesc"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="126dp"
+        android:text="Vous devez entrez le nom de 5 rappeurs un par un"
         android:textSize="18sp" />
 
 

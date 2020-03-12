@@ -10,9 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".JeuDifficileActivity"
+            android:label="@string/title_activity_jeu_difficile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".JeuFacileActivity"
+            android:label="@string/title_activity_jeu_facile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ChoixRapperActivity"
             android:label="@string/title_activity_choix_rapper"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
