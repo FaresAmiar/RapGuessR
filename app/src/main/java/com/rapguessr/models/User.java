@@ -1,4 +1,4 @@
-package com.rapguessr;
+package com.rapguessr.models;
 
 import java.util.ArrayList;
 
