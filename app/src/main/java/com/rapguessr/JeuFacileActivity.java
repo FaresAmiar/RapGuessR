@@ -1,8 +1,13 @@
 package com.rapguessr;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -13,6 +18,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +29,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ExecutionException;
 
 public class JeuFacileActivity extends AppCompatActivity {
 
@@ -28,6 +38,8 @@ public class JeuFacileActivity extends AppCompatActivity {
     private Intent i;
     private String [] reponses;
     private Integer bonneReponse;
+    private ArrayList<String> rappeurs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +58,26 @@ public class JeuFacileActivity extends AppCompatActivity {
 
         i = getIntent();
 
-        List<String> rappeurs = i.getStringArrayListExtra("Rappeurs");
+        rappeurs = i.getStringArrayListExtra("Rappeurs");
 
         //rappeurs random dans la liste
         Collections.shuffle(rappeurs);
         String rappeur = rappeurs.get(0), image = "", titre = "", lyrics = "";
+        rappeurs.remove(rappeur);
+
 
         //appeler nodejs
+        String result [] = null;
+        try {
+            result = new RecupererJSON().execute(rappeur).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String joker = result[0];
+        lyrics = result[1];
 
         reponses(lyrics,reponses,bonneReponse);
 
@@ -74,12 +99,14 @@ public class JeuFacileActivity extends AppCompatActivity {
                 int nbActivite = i.getIntExtra("nbActivite",0);
                 ++nbActivite;
                 Intent next = null;
-                if(nbActivite < 10) {
+                if(nbActivite < 10 && !rappeurs.isEmpty()) {
                     next = new Intent(JeuFacileActivity.this, JeuFacileActivity.class);
                 }
                 else {
                     next = new Intent(JeuFacileActivity.this,FinActivity.class);
                 }
+                next.putStringArrayListExtra("Rappeurs",rappeurs);
+                startActivity(next);
             }
         });
     }
@@ -124,6 +151,8 @@ public class JeuFacileActivity extends AppCompatActivity {
 
         //boucle sur le reste des lignes
         for(String ligne: paroles) {
+            if(ligne.charAt(0) == '[')
+                continue;
             while(!numReponses.isEmpty()) {
                 //mots de la phrase
                 String[] mots = ligne.split(" ");
@@ -146,6 +175,31 @@ public class JeuFacileActivity extends AppCompatActivity {
         return idRep == bonneReponse;
     }
 
+    private class RecupererJSON extends AsyncTask<String,Void,String[]> {
 
+        @Override
+        protected String[] doInBackground(String... strings) {
+            String url = "http://localhost:8000/getRapper/" + strings[0];
+            String joker = "", lyrics = "";
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        String joker = response.getString("joker");
+                        String lyrics = response.getString("lyrics");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(),"Veuillez relancer l'app",Toast.LENGTH_SHORT);
+                }
+            });
+            return new String[]{joker, lyrics};
+        }
+    }
 
 }
