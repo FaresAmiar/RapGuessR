@@ -2,33 +2,51 @@ package com.rapguessr;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.rapguessr.models.User;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class ChoixRapperActivity extends AppCompatActivity {
 
-    private List<String> rappeurs;
+    private ArrayList<String> rappeurs;
     private EditText etRappeur;
+    private Spinner rappeurSpinner;
     private RadioGroup radioGroup;
     private int cptRappeurs;
     private RadioButton radFacile, radDifficile;
+    private String pseudo;
+
+    DatabaseReference databaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_rapper);
 
+        databaseUser = FirebaseDatabase.getInstance().getReference("users");
+
+        Bundle extras = getIntent().getExtras();
+        pseudo =extras.getString("pseudo");
+
+        if(databaseUser.child(pseudo) == null)
+
+
         rappeurs = new ArrayList<>();
         etRappeur = findViewById(R.id.txtRappeur);
+        rappeurSpinner = findViewById(R.id.choixRappeur);
         radioGroup = findViewById(R.id.rdGroup);
         radFacile = findViewById(R.id.radFacile);
         radDifficile = findViewById(R.id.radDifficile);
@@ -86,8 +104,26 @@ public class ChoixRapperActivity extends AppCompatActivity {
                 cptRappeurs++;
             //else
              //   Toast.makeText(getApplicationContext(),"Vous avez déja ajouté 5 rappeurs",Toast.LENGTH_SHORT);
+
+
+            // String rappeurSaisie = etRappeur.getText().toString();
+            // String rappeurChoix = rappeurSpinner.getSelectedItem().toString();
+            // if (cptRappeurs < 5) {
+            //     cptRappeurs++;
+            //     if (TextUtils.isEmpty(rappeurSaisie) && !TextUtils.isEmpty(rappeurChoix))
+            //         rappeurs.add(rappeurChoix);
+            //     if (!TextUtils.isEmpty(rappeurSaisie) && TextUtils.isEmpty(rappeurChoix))
+            //         rappeurs.add(rappeurSaisie);
+            //     else
+            //         Toast.makeText(getApplicationContext(),"Veuillez selectionner un rappeur",Toast.LENGTH_SHORT);
+            // }
+            // else
+            //     Toast.makeText(getApplicationContext(),"Vous avez déja ajouté 5 rappeurs",Toast.LENGTH_SHORT);
     }
 
-
+    private void addUser(){
+        User user = new User(pseudo,0,rappeurs);
+        databaseUser.child(pseudo).setValue(user);
+    }
 
 }

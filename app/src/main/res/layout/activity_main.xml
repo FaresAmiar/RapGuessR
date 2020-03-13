@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/idTitre"
         android:layout_width="140dp"
         android:layout_height="48dp"
         android:layout_alignParentStart="true"
@@ -29,9 +30,25 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="146dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="154dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="154dp"
+        android:layout_marginBottom="151dp"
         android:text="JOUER" />
+
+    <EditText
+        android:id="@+id/editTextPseudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnJouer"
+        android:layout_below="@id/idTitre"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="219dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="139dp"
+        android:ems="10"
+        android:hint="Entrez votre pseudo"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>
